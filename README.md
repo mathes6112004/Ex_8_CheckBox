@@ -25,28 +25,148 @@ Step 7: Save and run the application.
 
 
 ## Program:
- ```
-/*
-Program to create an Option Menu
-Developed by: 
-RegisterNumber:  
-*/
-```
-
 ## MainActivity.java:
+```
+package com.example.exp8;
 
+import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.Toast;
+import android.os.Bundle;
+import android.os.Bundle;
 
+public class MainActivity extends AppCompatActivity {
+    private CheckBox chkAndroid, chkJava, chkPhp, chkCpp, chkC;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);chkAndroid = findViewById(R.id.chkAndroid);
+        chkJava = findViewById(R.id.chkJava);
+        chkPhp = findViewById(R.id.chkPhp);
+        chkCpp = findViewById(R.id.chkCpp);
+        chkC = findViewById(R.id.chkC);
+    }
+    public void showSelected(View view) {
 
+        String selected = "You selected: \n";
 
+        if(chkAndroid.isChecked())
+            selected += "Android";
+
+        if(chkJava.isChecked())
+            selected += "\nJava";
+
+        if(chkPhp.isChecked())
+            selected += "\nPHP";
+
+        if(chkCpp.isChecked())
+            selected += "\nCPP";
+
+        if(chkC.isChecked())
+            selected += "\nC";
+
+        Toast.makeText(MainActivity.this, selected, Toast.LENGTH_SHORT).show();
+    }
+}
+```
 ## activity_main.xml:
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Select Your favourite Programming language"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_margin="10dp"
+        android:textStyle="bold"/>
 
+    <CheckBox
+        android:id="@+id/chkAndroid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Android"
+        style="@style/TextAppearance.AppCompat.Headline"/>
+
+    <CheckBox
+        android:id="@+id/chkJava"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Java"
+        style="@style/TextAppearance.AppCompat.Headline"/>
+
+    <CheckBox
+        android:id="@+id/chkPhp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PHP"
+        style="@style/TextAppearance.AppCompat.Headline"/>
+
+    <CheckBox
+        android:id="@+id/chkCpp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CPP"
+        style="@style/TextAppearance.AppCompat.Headline"/>
+
+    <CheckBox
+        android:id="@+id/chkC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C"
+        style="@style/TextAppearance.AppCompat.Headline"/>
+
+    <Button android:id="@+id/btnDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Display"
+        android:layout_marginTop="20dp"
+        android:onClick="showSelected"/>
+
+</LinearLayout>
+```
 ## AndroidMainfest.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.exp8">
 
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Exp8"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+```
 ## Output
-
-
+i)![image](https://github.com/mathes6112004/Ex_8_CheckBox/assets/119477782/56012145-08cf-4d3a-b611-732804c1ed45)
+ii)![image](https://github.com/mathes6112004/Ex_8_CheckBox/assets/119477782/c3c03a5b-a703-45af-8149-f7f32cd42a87)
 
 ## Result:
 Thus a Simple Android Application to create an check box and display the selected check box using Android Studio was developed and executed successfully.
